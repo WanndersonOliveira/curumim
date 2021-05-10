@@ -515,7 +515,7 @@
 		<img src="bubble.png" id="pers">
 	</div>
 
-	<button id="up" ontouchstart="init(2)" onclick="init(2)">W</button>
+	<button id="up" ontouchstart="init(2)" ontouchend="stop()" onclick="init(2)">W</button>
 	<button id="left" ontouchstart="init(0)" ontouchend="stop()" onmousedown="init(0)" onmouseup="stop()"></button>
 	<button id="right" ontouchstart="init(1)" ontouchend="stop()" onmousedown="init(1)" onmouseup="stop()"></button>
 </body>

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<title>Game</title>
+</head>
+<body onload="inicio()">
+	<style type="text/css">
+		body {
+			background-color: grey;
+			z-index: 10;
+		}
+
+		#tela, #cima, #lateral {
+			position: absolute;
+			top: 10px;
+			left: 5%;
+			width: 220px;
+			height: 300px;
+			background-color: white;
+			z-index: -1;
+		}
+
+		#tela {
+			border-style: solid;
+			border-width: 1px;
+		}
+
+		#cima {
+			top: 0px;
+			height: 10px;
+			background-color: grey;
+			z-index: 5;
+		}
+
+		#lateral {
+			left: 0%;
+			width: 5%;
+			background-color: grey;
+			z-index: 5;
+		}
+
+
+		#pers {
+			position: absolute;
+			top: 130px;
+			left: 50px;
+			z-index:5;
+		}
+
+		#left, #right, #up {
+			position: absolute;
+			top: 400px;
+			left: 50px;
+			width: 50px;
+			height: 50px;
+		}
+
+		#right {
+			left: 150px;
+		}
+
+		#up {
+			top: 340px;
+		}
+	</style>
+
+	<script type="text/javascript">
+
+		//projetado para telas de 161 px de 
+
+		var body = document.body;
+		var elementos = [];
+		var player = {x:50,y:130, dir:0, sobre:false}; //0 -> esquerda; 1 -> direita
+		var cenario = 0;
+		var altura_base = 130;
+		var altura_pulo; //= altura_base-50;
+
+		var ind = 0;
+		var ctrl = [];
+
+		function inicio(){
+
+			var tela = document.getElementById("tela");
+
+			if(cenario == 0){
+				var elemento = document.createElement("img");
+
+				elemento.src = "terra2.png";
+				elemento.style.position = "absolute";
+				elemento.style.width = "110px";
+				elemento.style.height = "220px";
+				elemento.style.top = "80px";
+				elemento.style.left = "110px";
+				elemento.style.zIndex = "-5";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+
+				elemento = document.createElement("img");
+
+				elemento.src = "grama.png";
+				elemento.style.position = "absolute";
+				elemento.width = "150";
+				elemento.style.top = "75px";
+				elemento.style.left = "90px";
+				elemento.style.zIndez = "-5";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "terra.png";
+				elemento.style.position = "absolute";
+				elemento.style.width = "150px";
+				elemento.style.height = "180px";
+				elemento.style.top = "120px";
+				elemento.style.left = "20px";
+				elemento.style.zIndex = "-10";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+				elemento = document.createElement("img");
+
+				elemento.src = "grama.png";
+				elemento.style.position = "absolute";
+				elemento.width = "180";
+				elemento.style.top = "110px";
+				elemento.style.left = "5px";
+				elemento.style.zIndez = "-5";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+
+				elemento = document.createElement("img");
+
+				elemento.src = "terra.png";
+				elemento.style.position = "absolute";
+				elemento.style.width = "100px";
+				elemento.style.height = "150px";
+				elemento.style.top = "150px";
+				elemento.style.left = "100px";
+				elemento.style.zIndez = "-5";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+
+				elemento = document.createElement("img");
+
+				elemento.src = "grama.png";
+				elemento.style.position = "absolute";
+				elemento.width = "120";
+				elemento.style.top = "145px";
+				elemento.style.left = "90px";
+				elemento.style.zIndez = "-5";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+
+				elemento = document.createElement("img");
+
+				elemento.src = "terra.png";
+				elemento.style.position = "absolute";
+				elemento.width = "120";
+				elemento.style.top = "180px";
+				elemento.style.left = "50px";
+				elemento.style.zIndez = "-5";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+				altura_base = 130;
+
+				elemento = document.createElement("img");
+
+				elemento.src = "grama.png";
+				elemento.style.position = "absolute";
+				elemento.width = "150";
+				elemento.style.top = "180px";
+				elemento.style.left = "30px";
+				elemento.style.zIndez = "-5";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+			}
+
+			if(cenario == 1){
+				for(var i = 0; i < elementos.length; i++){
+					elementos[i].remove();
+				}
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "terra2.png";
+				elemento.style.position = "absolute";
+				elemento.style.width = "110px";
+				elemento.style.height = "220px";
+				elemento.style.top = "80px";
+				elemento.style.left = "0px";
+				elemento.style.zIndex = "-10";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+
+				elemento = document.createElement("img");
+
+				elemento.src = "grama.png";
+				elemento.style.position = "absolute";
+				elemento.width = "150";
+				elemento.style.top = "75px";
+				elemento.style.left = "-15px";
+				elemento.style.zIndez = "-5";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "terra.png";
+				elemento.style.position = "absolute";
+				elemento.style.width = "100px";
+				elemento.style.height = "150px";
+				elemento.style.top = "150px";
+				elemento.style.left = "120px";
+				elemento.style.zIndex = "-10";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+
+				elemento = document.createElement("img");
+
+				elemento.src = "grama.png";
+				elemento.style.position = "absolute";
+				elemento.width = "130";
+				elemento.style.top = "150px";
+				elemento.style.left = "105px";
+				elemento.style.zIndez = "-5";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+
+
+				elemento = document.createElement("img");
+
+				elemento.src = "plat1.png";
+				elemento.style.position = "absolute";
+				elemento.style.top = "25px";
+				elemento.style.left = "90px";
+				elemento.style.zIndez = "-5";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+			}
+
+
+
+			//body.removeChild() ou elemento.remove()
+		}
+
+		function init(id){
+			if(id == 0){
+				ctrl[0] = setInterval(left,100);
+			} 
+
+			if(id == 1){
+				ctrl[0] = setInterval(right,100);
+			}
+
+			if(id == 2){
+				ctrl[0] = setInterval(pulo,100);
+			}
+			
+		}
+
+		function right(){
+				player.x+=10;
+				player.dir = 1;
+
+				console.log("0 - 2: "+ctrl[0]+" "+ctrl[2]);
+				
+
+				if(cenario == 0){
+					if(player.x >= 150 & altura_base == 130){
+						ctrl[5] = setInterval(queda, 100);
+					}
+
+					if(player.x > 170 & altura_base == 100){
+						ctrl[5] = setInterval(queda, 100);
+					}
+
+					if(player.x >= 140 & altura_base == 70){
+						init_gravidade();
+					}
+
+					if(player.x == 190){
+						player.x = 0;
+						document.getElementById("pers").style.left = player.x+"px";
+						cenario++;
+						inicio();
+					}
+				}
+
+
+				if(cenario == 1){
+					if(player.x > 90 & altura_base == 30){
+						init_gravidade();
+					}
+
+					if(player.x > 70 & player.x <= 90 & altura_base == 30){
+						init_gravidade();
+					}
+
+					if(player.x > 140 & altura_base == -20){
+						init_gravidade();
+					}
+				}
+
+
+				document.getElementById("pers").style.left=player.x+"px";
+				document.getElementById("pers").style.top=player.y+"px";
+
+			console.log("x> "+player.x);
+		}
+
+		function queda(){
+			if(player.y < 250){
+
+				player.y+=20;
+
+				document.getElementById("pers").style.left = player.x+"px";
+				document.getElementById("pers").style.top = player.y+"px";
+			} else {
+				document.getElementById("pers").style.display = "none";
+				clearInterval(ctrl[5]);
+			}
+		}
+
+		function left(){
+			player.x-=10;
+			player.dir = 0;
+			document.getElementById("pers").style.left=player.x+"px";
+			console.log("x> "+player.x);
+
+			if(cenario == 0){
+				if(player.x < 20 & altura_base == 130){
+					ctrl[5] = setInterval(queda,100);
+				}
+
+				if(player.x < 0 & altura_base == 70){
+					ctrl[5] = setInterval(queda,100);
+				}
+
+				if(player.x < 100 & altura_base == 100){
+					init_gravidade();
+				}
+
+				if(player.x < 20 & altura_base == 70){
+					init_gravidade();
+				}
+
+				if(player.x < 90 & altura_base == 30){
+					init_gravidade();
+				}
+			}
+
+			if(cenario == 1){
+				if(player.x < 70 & altura_base == -20){
+					init_gravidade();
+				}
+			}
+
+		}
+
+		function stop(){
+			clearInterval(ctrl[0]);
+		}
+
+
+		function pulo(){
+
+			if(player.x > 70 & player.x <= 90 & altura_base == 30 & cenario == 1){
+				altura_base = -20;
+				player.sobre = true;
+			}
+
+			if(player.y > altura_pulo){
+				player.y-=10;
+
+				document.getElementById("pers").style.top=player.y+"px";
+			}
+
+			if(player.y == altura_pulo) {
+				init_gravidade();
+				clearInterval(ctrl[0]);
+			}
+		}
+
+		function init_gravidade(){
+
+			if(cenario == 0){
+				if(player.x >= 90 & player.x < 150 & altura_base == 130){
+					altura_base = 90;
+				}
+
+				if(player.x >= 100 & player.x <= 120 & altura_base == 100){
+					altura_base = 60;
+				}
+
+				if(player.x < 100 & altura_base == 100){
+					altura_base = 130;
+				}
+
+				if(player.x >= 140 & altura_base == 70){
+					altura_base = 100;
+				}
+
+				if(player.x >= 90 & player.x < 140 & altura_base == 70){
+					altura_base = 25;
+				}
+
+				if(player.x < 90 & altura_base == 30){
+					altura_base = 60;
+				}
+			}
+
+			if(cenario == 1){
+
+				if(player.x > 90 & altura_base == 30){
+					altura_base = 110;
+				}
+
+				if(player.x > 140 & altura_base == -20){
+					altura_base = 105;
+				}
+
+				if(player.x < 70 & altura_base == -20){
+					altura_base = 29;
+				}
+			}
+			
+
+			ctrl[2] = setInterval(gravidade, 100);
+			console.log("altura_base: "+altura_base);
+		}
+
+		function gravidade(){
+
+			if(player.y < altura_base){
+				player.y+=10;
+				document.getElementById("pers").style.top=player.y+"px";
+
+				if(cenario == 0){
+					if(altura_base == 60){
+						altura_base = 70;
+					}
+
+					if(altura_base == 90){
+						altura_base = 100;
+					}
+
+					if(altura_base == 25){
+						altura_base = 30;
+					}
+				}
+
+				if(cenario == 1){
+					if(altura_base == 105){
+						altura_base = 110;
+
+						player.sobre = false;
+					}
+
+					if(altura_base == 29){
+						altura_base = 30;
+						player.sobre = false;
+					}
+				}
+
+
+			} if(player.y == altura_base) {
+				clearInterval(ctrl[2]);
+			}
+		}
+
+		function checaAltura(){
+			altura_pulo = altura_base-50;
+		}
+
+		function progressao(){
+			
+		}
+
+		setInterval(checaAltura,1000);
+
+	</script>
+
+
+	<div id="cima"></div>
+	<div id="lateral"></div>
+	<div id="tela">
+		<img src="bubble.png" id="pers">
+	</div>
+
+	<button id="up" ontouchstart="init(2)" onclick="init(2)">W</button>
+	<button id="left" ontouchstart="init(0)" ontouchend="stop()" onmousedown="init(0)" onmouseup="stop()"></button>
+	<button id="right" ontouchstart="init(1)" ontouchend="stop()" onmousedown="init(1)" onmouseup="stop()"></button>
+</body>
+</html>

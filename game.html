@@ -18,7 +18,7 @@
 			left: 5%;
 			width: 220px;
 			height: 300px;
-			background-color: white;
+			background-color: #66ccff;
 			z-index: -1;
 		}
 
@@ -46,7 +46,7 @@
 			position: absolute;
 			top: 130px;
 			left: 50px;
-			z-index:5;
+			z-index: 1;
 		}
 
 		#left, #right, #up {
@@ -85,6 +85,7 @@
 			var tela = document.getElementById("tela");
 
 			if(cenario == 0){
+
 				var elemento = document.createElement("img");
 
 				elemento.src = "terra2.png";
@@ -94,6 +95,19 @@
 				elemento.style.top = "80px";
 				elemento.style.left = "110px";
 				elemento.style.zIndex = "-5";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "arvore.png";
+				elemento.style.position = "absolute";
+				//elemento.style.width = "110px";
+				//elemento.style.height = "220px";
+				elemento.style.top = "-25px";
+				elemento.style.left = "130px";
+				elemento.style.zIndez = "-5"
 
 				tela.appendChild(elemento);
 				elementos.push(elemento);
@@ -120,7 +134,7 @@
 				elemento.style.height = "180px";
 				elemento.style.top = "120px";
 				elemento.style.left = "20px";
-				elemento.style.zIndex = "-10";
+				elemento.style.zIndex = "-4";
 
 				tela.appendChild(elemento);
 				elementos.push(elemento);
@@ -132,7 +146,7 @@
 				elemento.width = "180";
 				elemento.style.top = "110px";
 				elemento.style.left = "5px";
-				elemento.style.zIndez = "-5";
+				elemento.style.zIndez = "-4";
 
 				tela.appendChild(elemento);
 				elementos.push(elemento);
@@ -146,7 +160,7 @@
 				elemento.style.height = "150px";
 				elemento.style.top = "150px";
 				elemento.style.left = "100px";
-				elemento.style.zIndez = "-5";
+				elemento.style.zIndez = "-3";
 
 				tela.appendChild(elemento);
 				elementos.push(elemento);
@@ -159,7 +173,7 @@
 				elemento.width = "120";
 				elemento.style.top = "145px";
 				elemento.style.left = "90px";
-				elemento.style.zIndez = "-5";
+				elemento.style.zIndez = "-3";
 
 				tela.appendChild(elemento);
 				elementos.push(elemento);
@@ -172,12 +186,27 @@
 				elemento.width = "120";
 				elemento.style.top = "180px";
 				elemento.style.left = "50px";
-				elemento.style.zIndez = "-5";
+				elemento.style.zIndez = "-2";
 
 				tela.appendChild(elemento);
 				elementos.push(elemento);
 
 				altura_base = 130;
+
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "arvore.png";
+				elemento.style.position = "absolute";
+				//elemento.style.width = "110px";
+				//elemento.style.height = "220px";
+				elemento.style.top = "10px";
+				elemento.style.left = "50px";
+				elemento.style.zIndez = "-4"
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
 
 				elemento = document.createElement("img");
 
@@ -186,10 +215,12 @@
 				elemento.width = "150";
 				elemento.style.top = "180px";
 				elemento.style.left = "30px";
-				elemento.style.zIndez = "-5";
+				elemento.style.zIndez = "-2";
 
 				tela.appendChild(elemento);
 				elementos.push(elemento);
+
+
 			}
 
 			if(cenario == 1){
@@ -263,9 +294,485 @@
 
 				tela.appendChild(elemento);
 				elementos.push(elemento);
+			}
+
+
+			if(cenario == 2){
+
+				for(var i = 0; i < elementos.length; i++){
+					elementos[i].remove();
+				}
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "terra.png";
+				elemento.style.position = "absolute";
+				elemento.style.width = "220px";
+				elemento.style.height = "150px";
+				elemento.style.top = "150px";
+				elemento.style.left = "0px";
+				elemento.style.zIndex = "-10";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "arvore.png";
+				elemento.style.position = "absolute";
+				//elemento.style.width = "110px";
+				//elemento.style.height = "220px";
+				elemento.style.top = "40px";
+				elemento.style.left = "20px";
+				elemento.style.zIndez = "-4"
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "arvore.png";
+				elemento.style.position = "absolute";
+				//elemento.style.width = "110px";
+				//elemento.style.height = "220px";
+				elemento.style.top = "40px";
+				elemento.style.left = "140px";
+				elemento.style.zIndez = "-4"
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+
+				elemento = document.createElement("img");
+
+				elemento.src = "grama.png";
+				elemento.style.position = "absolute";
+				elemento.style.width = "275px";
+				elemento.style.height = "30px";
+				elemento.style.top = "140px";
+				elemento.style.left = "-30px";
+				elemento.style.zIndez = "-5";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+				for(var i = 60; i <= 140; i+=20){
+					elemento = document.createElement("img"); 
+
+					elemento.src = "semente.png";
+					elemento.style.position = "absolute";
+					elemento.style.top = "100px";
+					elemento.style.left = i+"px";
+					elemento.style.zIndez = "-3";
+
+					tela.appendChild(elemento);
+					elementos.push(elemento);
+				}
+
+
+				for(var i = 20; i <= 180; i+=40){
+					elemento = document.createElement("img"); 
+
+					elemento.src = "semente.png";
+					elemento.style.position = "absolute";
+					elemento.style.top = "120px";
+					elemento.style.left = i+"px";
+					elemento.style.zIndez = "-3";
+
+					tela.appendChild(elemento);
+					elementos.push(elemento);
+				}
 
 			}
 
+			if(cenario == 3){
+
+				for(var i = 0; i < elementos.length; i++){
+					elementos[i].remove();
+				}
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "terra.png";
+				elemento.style.position = "absolute";
+				elemento.style.width = "220px";
+				elemento.style.height = "150px";
+				elemento.style.top = "150px";
+				elemento.style.left = "0px";
+				elemento.style.zIndex = "-10";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "arvore.png";
+				elemento.style.position = "absolute";
+				//elemento.style.width = "110px";
+				//elemento.style.height = "220px";
+				elemento.style.top = "40px";
+				elemento.style.left = "20px";
+				elemento.style.zIndez = "-4"
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "arvore.png";
+				elemento.style.position = "absolute";
+				//elemento.style.width = "110px";
+				//elemento.style.height = "220px";
+				elemento.style.top = "40px";
+				elemento.style.left = "140px";
+				elemento.style.zIndez = "-4"
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+
+				elemento = document.createElement("img");
+
+				elemento.src = "grama.png";
+				elemento.style.position = "absolute";
+				elemento.style.width = "275px";
+				elemento.style.height = "30px";
+				elemento.style.top = "140px";
+				elemento.style.left = "-30px";
+				elemento.style.zIndez = "-5";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+				elemento = document.createElement("img");
+
+				elemento.src = "plat1.png";
+				elemento.style.position = "absolute";
+				elemento.style.top = "100px";
+				elemento.style.left = "90px";
+				elemento.style.zIndez = "-3";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+				for(var i = 100; i <= 150; i+=20){
+					elemento = document.createElement("img");
+
+					elemento.src = "semente.png";
+					elemento.style.position = "absolute";
+					elemento.style.top = "80px";
+					elemento.style.left = i+"px";
+					elemento.style.zIndez = "-3";
+
+					tela.appendChild(elemento);
+					elementos.push(elemento);
+				}
+
+				for(var i = 20; i <= 180; i+=20){
+					elemento = document.createElement("img");
+
+					elemento.src = "semente.png";
+					elemento.style.position = "absolute";
+					elemento.style.top = "130px";
+					elemento.style.left = i+"px";
+					elemento.style.zIndez = "-3";
+
+					tela.appendChild(elemento);
+					elementos.push(elemento);
+				}
+
+			}
+
+			if(cenario == 4){
+				for(var i = 0; i < elementos.length; i++){
+					elementos[i].remove();
+				}
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "terra.png";
+				elemento.style.position = "absolute";
+				elemento.style.width = "220px";
+				elemento.style.height = "150px";
+				elemento.style.top = "150px";
+				elemento.style.left = "0px";
+				elemento.style.zIndex = "-10";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "arvore.png";
+				elemento.style.position = "absolute";
+				//elemento.style.width = "110px";
+				//elemento.style.height = "220px";
+				elemento.style.top = "40px";
+				elemento.style.left = "20px";
+				elemento.style.zIndez = "-4"
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "arvore.png";
+				elemento.style.position = "absolute";
+				//elemento.style.width = "110px";
+				//elemento.style.height = "220px";
+				elemento.style.top = "40px";
+				elemento.style.left = "140px";
+				elemento.style.zIndez = "-4"
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+
+				elemento = document.createElement("img");
+
+				elemento.src = "grama.png";
+				elemento.style.position = "absolute";
+				elemento.style.width = "275px";
+				elemento.style.height = "30px";
+				elemento.style.top = "140px";
+				elemento.style.left = "-30px";
+				elemento.style.zIndez = "-5";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "inimigo.png";
+				elemento.style.position = "absolute";
+				//elemento.style.width = "110px";
+				//elemento.style.height = "220px";
+				elemento.style.top = "100px";
+				elemento.style.left = "140px";
+				elemento.style.zIndez = "-2";
+				//altura: 50; largura: 50
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+				for(var i = 80; i <= 130; i+=20){
+					elemento = document.createElement("img");
+
+					elemento.src = "semente.png";
+					elemento.style.position = "absolute";
+					elemento.style.top = "80px";
+					elemento.style.left = i+"px";
+					elemento.style.zIndez = "-3";
+					////altura: 10; largura: 10
+					tela.appendChild(elemento);
+					elementos.push(elemento);
+				}
+
+			}
+
+
+			if(cenario == 5){
+				for(var i = 0; i < elementos.length; i++){
+					elementos[i].remove();
+				}
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "terra.png";
+				elemento.style.position = "absolute";
+				elemento.style.width = "220px";
+				elemento.style.height = "150px";
+				elemento.style.top = "150px";
+				elemento.style.left = "0px";
+				elemento.style.zIndex = "-10";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "arvore.png";
+				elemento.style.position = "absolute";
+				//elemento.style.width = "110px";
+				//elemento.style.height = "220px";
+				elemento.style.top = "40px";
+				elemento.style.left = "20px";
+				elemento.style.zIndez = "-4"
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "arvore.png";
+				elemento.style.position = "absolute";
+				//elemento.style.width = "110px";
+				//elemento.style.height = "220px";
+				elemento.style.top = "40px";
+				elemento.style.left = "140px";
+				elemento.style.zIndez = "-4"
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+
+				elemento = document.createElement("img");
+
+				elemento.src = "grama.png";
+				elemento.style.position = "absolute";
+				elemento.style.width = "275px";
+				elemento.style.height = "30px";
+				elemento.style.top = "140px";
+				elemento.style.left = "-30px";
+				elemento.style.zIndez = "-5";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "inimigo.png";
+				elemento.style.position = "absolute";
+				//elemento.style.width = "110px";
+				//elemento.style.height = "220px";
+				elemento.style.top = "100px";
+				elemento.style.left = "140px";
+				elemento.style.zIndez = "-2";
+				//altura: 50; largura: 50
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "inimigo.png";
+				elemento.style.position = "absolute";
+				//elemento.style.width = "110px";
+				//elemento.style.height = "220px";
+				elemento.style.top = "100px";
+				elemento.style.left = "80px";
+				elemento.style.zIndez = "-2";
+				//altura: 50; largura: 50
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+				for(var i = 80; i <= 130; i+=20){
+					elemento = document.createElement("img");
+
+					elemento.src = "semente.png";
+					elemento.style.position = "absolute";
+					elemento.style.top = "80px";
+					elemento.style.left = i+"px";
+					elemento.style.zIndez = "-3";
+					////altura: 10; largura: 10
+					tela.appendChild(elemento);
+					elementos.push(elemento);
+				}
+
+				var t = 150;
+
+				for(var i = 80; i <= 130; i+=20){
+					elemento = document.createElement("img");
+					t = t-20;
+
+					elemento.src = "semente.png";
+					elemento.style.position = "absolute";
+					elemento.style.top = t+"px";
+					elemento.style.left = i+"px";
+					elemento.style.zIndez = "-3";
+					////altura: 10; largura: 10
+					tela.appendChild(elemento);
+					elementos.push(elemento);
+				}
+
+			}
+
+			if(cenario == 6){
+				for(var i = 0; i < elementos.length; i++){
+					elementos[i].remove();
+				}
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "terra.png";
+				elemento.style.position = "absolute";
+				elemento.style.width = "100px";
+				elemento.style.height = "150px";
+				elemento.style.top = "150px";
+				elemento.style.left = "0px";
+				elemento.style.zIndex = "-10";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+
+				elemento = document.createElement("img");
+
+				elemento.src = "grama.png";
+				elemento.style.position = "absolute";
+				elemento.style.width = "150px";
+				elemento.style.height = "30px";
+				elemento.style.top = "140px";
+				elemento.style.left = "-30px";
+				elemento.style.zIndez = "-5";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "terra.png";
+				elemento.style.position = "absolute";
+				elemento.style.width = "50px";
+				elemento.style.height = "100px";
+				elemento.style.top = "200px";
+				elemento.style.left = "120px";
+				elemento.style.zIndex = "-10";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+
+				elemento = document.createElement("img");
+
+				elemento.src = "grama.png";
+				elemento.style.position = "absolute";
+				elemento.style.width = "70px";
+				elemento.style.height = "20px";
+				elemento.style.top = "190px";
+				elemento.style.left = "110px";
+				elemento.style.zIndez = "-5";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+
+				var elemento = document.createElement("img");
+
+				elemento.src = "terra.png";
+				elemento.style.position = "absolute";
+				elemento.style.width = "40px";
+				elemento.style.height = "50px";
+				elemento.style.top = "250px";
+				elemento.style.left = "180px";
+				elemento.style.zIndex = "-10";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+
+
+				elemento = document.createElement("img");
+
+				elemento.src = "grama.png";
+				elemento.style.position = "absolute";
+				elemento.style.width = "50px";
+				elemento.style.height = "20px";
+				elemento.style.top = "240px";
+				elemento.style.left = "175px";
+				elemento.style.zIndez = "-5";
+
+				tela.appendChild(elemento);
+				elementos.push(elemento);
+			}
 
 
 			//body.removeChild() ou elemento.remove()
@@ -281,16 +788,17 @@
 			}
 
 			if(id == 2){
+				//document.getElementById("up").style.display = "none";
 				ctrl[0] = setInterval(pulo,100);
 			}
 			
 		}
 
 		function right(){
+				console.log("y: "+player.y);
+
 				player.x+=10;
 				player.dir = 1;
-
-				console.log("0 - 2: "+ctrl[0]+" "+ctrl[2]);
 				
 
 				if(cenario == 0){
@@ -306,7 +814,7 @@
 						init_gravidade();
 					}
 
-					if(player.x == 190){
+					if(player.x == 190 & (altura_base == 30 | altura_base == 31)){
 						player.x = 0;
 						document.getElementById("pers").style.left = player.x+"px";
 						cenario++;
@@ -327,7 +835,67 @@
 					if(player.x > 140 & altura_base == -20){
 						init_gravidade();
 					}
+
+					if(player.x == 190 & altura_base == 110){
+						player.x = 0;
+						document.getElementById("pers").style.left = player.x+"px";
+						cenario++;
+						inicio();
+					}
 				}
+
+				if(cenario == 2){
+					if(player.x == 190 & altura_base == 110){
+						player.x = 0;
+						document.getElementById("pers").style.left = player.x+"px";
+						cenario++;
+						inicio();
+					}
+				}
+
+
+				if(cenario == 3){
+					if(player.x == 190 & altura_base == 110){
+						player.x = 0;
+						document.getElementById("pers").style.left = player.x+"px";
+						cenario++;
+						inicio();
+					}
+				}
+
+
+				if(cenario == 4){
+					if(player.x == 190 & altura_base == 110){
+						player.x = 0;
+						document.getElementById("pers").style.left = player.x+"px";
+						cenario++;
+						inicio();
+					}
+				}
+
+
+				if(cenario == 5){
+					if(player.x == 190 & altura_base == 110){
+						player.x = 0;
+						document.getElementById("pers").style.left = player.x+"px";
+						cenario++;
+						inicio();
+					}
+				}
+
+
+				//Verificador de colisão personagem-inimigo
+				/*if(cenario == x){
+					for(var i = 0; i < elementos.length; i++){
+						var elemento = elementos[i];
+
+						if(elemento.src == "inimigo.png"){
+							if(elemento.style.top == player.y & ){
+
+							}
+						}
+					}
+				}*/
 
 
 				document.getElementById("pers").style.left=player.x+"px";
@@ -350,10 +918,6 @@
 		}
 
 		function left(){
-			player.x-=10;
-			player.dir = 0;
-			document.getElementById("pers").style.left=player.x+"px";
-			console.log("x> "+player.x);
 
 			if(cenario == 0){
 				if(player.x < 20 & altura_base == 130){
@@ -381,7 +945,18 @@
 				if(player.x < 70 & altura_base == -20){
 					init_gravidade();
 				}
+
+				if(player.x < 110 & altura_base == 110){
+					ctrl[5] = setInterval(queda,100);
+				}
+
 			}
+
+
+			player.x-=10;
+			player.dir = 0;
+			document.getElementById("pers").style.left=player.x+"px";
+			console.log("x> "+player.x);
 
 		}
 
@@ -417,7 +992,7 @@
 				}
 
 				if(player.x >= 100 & player.x <= 120 & altura_base == 100){
-					altura_base = 60;
+					altura_base = 69;
 				}
 
 				if(player.x < 100 & altura_base == 100){
@@ -429,22 +1004,22 @@
 				}
 
 				if(player.x >= 90 & player.x < 140 & altura_base == 70){
-					altura_base = 25;
+					altura_base = 31;
 				}
 
 				if(player.x < 90 & altura_base == 30){
-					altura_base = 60;
+					altura_base = 69;
 				}
 			}
 
 			if(cenario == 1){
 
 				if(player.x > 90 & altura_base == 30){
-					altura_base = 110;
+					altura_base = 109;
 				}
 
 				if(player.x > 140 & altura_base == -20){
-					altura_base = 105;
+					altura_base = 109;
 				}
 
 				if(player.x < 70 & altura_base == -20){
@@ -452,9 +1027,7 @@
 				}
 			}
 			
-
 			ctrl[2] = setInterval(gravidade, 100);
-			console.log("altura_base: "+altura_base);
 		}
 
 		function gravidade(){
@@ -464,7 +1037,7 @@
 				document.getElementById("pers").style.top=player.y+"px";
 
 				if(cenario == 0){
-					if(altura_base == 60){
+					if(altura_base == 69){
 						altura_base = 70;
 					}
 
@@ -472,13 +1045,13 @@
 						altura_base = 100;
 					}
 
-					if(altura_base == 25){
+					if(altura_base == 31){
 						altura_base = 30;
 					}
 				}
 
 				if(cenario == 1){
-					if(altura_base == 105){
+					if(altura_base == 109){
 						altura_base = 110;
 
 						player.sobre = false;
@@ -492,6 +1065,7 @@
 
 
 			} if(player.y == altura_base) {
+				document.getElementById("up").style.display = "block";
 				clearInterval(ctrl[2]);
 			}
 		}

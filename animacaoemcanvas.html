@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Index</title>
+</head>
+<body onload="init()">
+	<style type="text/css">
+		#canvas {
+			position: absolute;
+			top: 50px;
+			left: 70px;
+			width: 300px;
+			height: 300px;
+			border-width: 1px;
+			border-style: solid;
+		}
+	</style>
+
+	<canvas id="canvas"></canvas>
+
+	<script type="text/javascript">
+		var ctx = document.getElementById('canvas').getContext('2d');
+
+		var x = 80;
+		var y = 10;
+
+function init(){
+	ctx.fillStyle = "yellow";
+	ctx.fillRect(0,0,300,300);
+	ctx.fillStyle = "black";
+  	ctx.fillRect(x,y,20,20);
+
+  	setInterval(draw,250);
+}
+
+function draw() {
+  x+=2;
+
+  ctx.clearRect(0,0,300,300);
+
+  ctx.fillStyle = "yellow";
+  ctx.fillRect(0,0,300,300);
+  ctx.save();
+  ctx.fillStyle = "black";
+  ctx.fillRect(x,y,20,20);
+  ctx.restore();
+
+}
+	</script>
+</body>
+</html>
